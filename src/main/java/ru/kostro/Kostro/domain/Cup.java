@@ -8,19 +8,21 @@ public class Cup {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String text;
-    private String tag;
+    private String title;
+    private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User author;
 
+    private String[] filename;
+
     public Cup() {
     }
 
-    public Cup(String text, String tag, User author) {
-        this.text = text;
-        this.tag = tag;
+    public Cup(String title, String description, User author) {
+        this.title = title;
+        this.description = description;
         this.author = author;
     }
 
@@ -32,20 +34,20 @@ public class Cup {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getTag() {
-        return tag;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public User getAuthor() {
@@ -54,5 +56,13 @@ public class Cup {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public String[] getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String[] filename) {
+        this.filename = filename;
     }
 }
